@@ -12,7 +12,8 @@ class WeatherGenerator extends Component {
 			currentTemperature: '',
 			maxTemperature: '',
 			minTemperature: '',
-			cloud: '',		
+			cloud: '',
+			icon: ''
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,6 +36,7 @@ class WeatherGenerator extends Component {
 						minTemperature: Math.round(data.main.temp_min - 273),
 						cloud: data.weather[0].description,
 						pressure: `${Math.round(data.main.pressure / 1.333)} мм рт.ст`,
+						icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`
 					}))
 			} else {
 				alert('введите город');
