@@ -7,12 +7,22 @@ function WeatherCard(props) {
 		minTemperature,
 		cloud,
 		pressure,
-		city
+		city,
+		icon
 	} = props.data;
+	
+	// // const imgSrc =  props.handleSubmit.event ? `http://openweathermap.org/img/wn/${icon}.png` : null;
+	// console.log(props.handleSubmit.event)
+
 	return (
 		<div className="weather-wrapper">
 			<div className="weather-card">
-				<p><span className="weather-card__data">Temperature: </span>{currentTemperature}</p>
+				<p className="weather-card__currently">
+					<img src={icon} alt=""></img>
+					<span>
+						{currentTemperature}
+					</span>
+				</p>
 				<p><span className="weather-card__data">Min. Temperature: </span>{minTemperature}</p>
 				<p><span className="weather-card__data">Cloudiness: </span>{cloud}</p>
 				<p><span className="weather-card__data">Pressure: </span>{pressure}</p>
