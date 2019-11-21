@@ -1,6 +1,6 @@
 import React from 'react';
 import MainCard from './cards/MainCard';
-// import FiveDaysCards from './cards/fiveDaysCards';
+import FiveDaysCards from './cards/fiveDaysCards';
 import './weatherBlock.scss';
 
 function WeatherBlock(props) {
@@ -10,13 +10,15 @@ function WeatherBlock(props) {
 			<MainCard 
 				data={props.data}
 			/>
-			{/* <FiveDaysCards /> */}
+			<FiveDaysCards 
+				data={props.data}
+			/>
 			<form className="weather-form" onSubmit={props.handleSubmit}>
 				<input
 					type="text"
 					name="city"
 					className="weather-form__input"
-					placeholder="Type your city, please"
+					placeholder="Введите Ваш город, пожалуйста"
 					value={city}
 					onChange={props.handleChange}
 					autoComplete="off"
