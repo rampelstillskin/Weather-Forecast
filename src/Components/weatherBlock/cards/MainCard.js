@@ -27,19 +27,19 @@ const mainCard = (props) => {
 			<p className="weather-card__data cloudiness">{cloudiness}</p>
 			{humidity ? 
 				<p className="weather-card__list-data">
-					<span className="weather-card__item-data wind">Wind {wind.speed}m/s</span>
-					<span className="weather-card__item-data">Humidity {humidity}</span><br/>
-					<span className="weather-card__item-data">Pressure {pressure}</span>
+					<span className="weather-card__item-data wind">Скорость ветра: {wind.speed} м/с</span>
+					<span className="weather-card__item-data">Влажность: {humidity}</span><br/>
+					<span className="weather-card__item-data">Давление: {pressure} мбар</span>
 				</p> : null
 			}
 			{sunrise && sunset ?
 				<div className="weather-card__sun-wrapper">
 					<p className="weather-card__sun sunrise">
-						<span className="weather-card__sun-data sun-card">Sunrise: </span>
+						<span className="weather-card__sun-data sun-card">Восход: </span>
 						{sunrise}
 					</p>
 					<p className="weather-card__sun sunset">
-						<span className="weather-card__sun-data sun-card">Sunset: </span>
+						<span className="weather-card__sun-data sun-card">Закат: </span>
 						{sunset}
 					</p>
 				</div> : null
