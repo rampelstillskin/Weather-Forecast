@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import WeatherBlock from '../weatherBlock/WeatherBlock';
+import '../../index.scss';
 
 const API_KEY = 'd1663099de2c72e24962a3ac1d663db6';
 
@@ -38,56 +39,61 @@ class WeatherGenerator extends Component {
 		this.setState({ [name]: value })
 	}
 
-
-
 	handleSubmit(event) {
 		event.preventDefault();
 		let url = `https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&lang=ru&units=metric&appid=${API_KEY}`;
 		let head = new Headers();
 		head.append('Accept', 'application/json');
-
 		let req = new Request(url, {
 			method: 'get',
 			header: head,
 			mode: 'cors'
 		});
 
-		let checkFetch = (response) => {
-			if (!response.ok) {
-				throw Error(`${response.statusText} - ${response.url}`)
+		// let checkFetch = (response) => {
+		// 	if (!response.ok) {
+		// 		throw Error(`${response.statusText} - ${response.url}`)
+		// 	}
+		// 	return response;
+		// }
+		
+		
+		const requestMainCard = new Promise((resolve, reject) => {
+			if (this.state.city) {
+				fetch(req)
+					.then(response => resolve(response.json()))
+					.catch(error => console.error(`Error: ${error}`))
+			} else {
+				alert('введите город');
 			}
-			return response;
-		}
+		});
 
-		if (this.state.city) {
-			fetch(req)
-			.then(checkFetch)
-			.then(response => response.json())
-			.then(data =>
+		// const requestFiveCard = new Promise((resolve, reject));
+		
+		Promise.all([
+			requestMainCard
+		]).then(value => {
 				this.setState({
-					dataWeather: data,
-					nameCity: data.name,
-					// currentTemperature: `${this.celsiusTranslation(data.main.temp)}°`,
-					currentTemperature: `${data.main.temp}°`,
-					minTemperature: `${data.main.temp_min}°`,
-					maxTemperature: `${data.main.temp_max}°`,
-					cloudiness: data.weather[0].description,
-					humidity: `${data.main.humidity}%`,
-					sunrise: this.sunTime(data.sys.sunrise),
-					sunset: this.sunTime(data.sys.sunset),
-					wind: data.wind,
-					pressure: data.main.pressure,
-					icon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-				}))
-			.catch(error => console.error(`Error: ${error}`))
-		} else {
-			alert('введите город');
-		}
+					dataWeather: value[0],
+					nameCity: value[0].name,
+					currentTemperature: `${value[0].main.temp}°`,
+					minTemperature: `${value[0].main.temp_min}°`,
+					maxTemperature: `${value[0].main.temp_max}°`,
+					cloudiness: value[0].weather[0].description,
+					humidity: `${value[0].main.humidity}%`,
+					sunrise: this.sunTime(value[0].sys.sunrise),
+					sunset: this.sunTime(value[0].sys.sunset),
+					wind: value[0].wind,
+					pressure: value[0].main.pressure,
+					icon: `https://openweathermap.org/img/wn/${value[0].weather[0].icon}@2x.png`
+				})
+
+		})
 	}
 
 	render() {
 		return(
-			<div>
+			<div className="weather-block__wrapper">
 				<WeatherBlock 
 					data={this.state}
 					handleChange={this.handleChange}
