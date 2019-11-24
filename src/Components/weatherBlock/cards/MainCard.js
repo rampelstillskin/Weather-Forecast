@@ -12,6 +12,7 @@ const mainCard = (props) => {
 		sunset,
 		wind,
 		pressure} = props.data;
+
 	return (
 		<div className="weather-card">
 			<h1 className="weather-card__title">{nameCity}</h1>

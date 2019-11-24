@@ -1,6 +1,6 @@
 import React from 'react';
 import MainCard from './cards/MainCard';
-import FiveDaysCards from './cards/fiveDaysCards';
+import FiveDaysCards from './cards/FiveDaysCards';
 import './weatherBlock.scss';
 
 function WeatherBlock(props) {
