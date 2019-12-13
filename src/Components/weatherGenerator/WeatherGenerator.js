@@ -21,7 +21,7 @@ class WeatherGenerator extends Component {
       sunset: "",
       wind: "",
       pressure: "",
-      days: []
+      fiveDays: []
     };
   }
 
@@ -33,17 +33,17 @@ class WeatherGenerator extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    let myInit = {
+    const myInit = {
       method: "GET",
       referrer: "no-referrer",
       mode: "cors",
     };
 
-    let requestCurrentDay = fetch(
+    const requestCurrentDay = fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&lang=ru&units=metric&appid=${API_KEY}`,
       myInit
     );
-    let requestFiveDays = fetch(
+    const requestFiveDays = fetch(
       `https://api.openweathermap.org/data/2.5/forecast?q=${this.state.city}&lang=ru&units=metric&appid=${API_KEY}`,
       myInit
     );
@@ -51,7 +51,7 @@ class WeatherGenerator extends Component {
     if (this.state.city) {
       Promise.all([requestCurrentDay, requestFiveDays]).then(elements => {
         return Promise.all(elements.map(response => response.json()))
-          .then(([currentDay, fiveDays, currentIconWeather]) => {
+          .then(([currentDay, fiveDays]) => {
 
             const fiveDaysData = fiveDays.list.filter(value =>
               value.dt_txt.includes("15:00:00")
@@ -69,7 +69,7 @@ class WeatherGenerator extends Component {
               wind: currentDay.wind,
               pressure: currentDay.main.pressure,
               icon: `http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png`,
-              days: fiveDaysData
+              fiveDays: fiveDaysData
             });
           })
           .catch(error => console.error(`Error: ${error}`));
