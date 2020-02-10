@@ -1,45 +1,41 @@
 .five-cards__wrapper {
-	display: flex;
-	width: 90%;
-	margin: 0 auto;
-	height: 35%;
-	position: absolute;
-	left: 5%;
-	bottom: 0;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  height: 35%;
+  position: absolute;
+  left: 5%;
+  bottom: 0;
 }
 
 .five-cards__list {
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	width: 100%;
-	align-items: center;
-	padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  align-items: center;
+  padding: 0;
 
-	.five-cards__item {
-		display: grid;
-		// flex-direction: column;
-		grid-template-rows: .1fr .8fr .2fr 1fr;
-		justify-items: center;
-		text-align: center;
-		list-style-type: none;
+  .five-cards__item {
+    display: grid;
+    grid-template-rows: 0.1fr 0.8fr 0.2fr 1fr;
+    justify-items: center;
+    text-align: center;
+    list-style-type: none;
 
-		&--descr {
-		}
-
-		img {
-			width: 50px;
-			height: 50px;
-			margin: 0;
-			padding: 0;
-		}
-	}
+    img {
+      width: 50px;
+      height: 50px;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }
 
 .five-cards__temp {
-	margin: 5px 0;	
-	
-	&-item {
-		font-size: 2em;
-		margin-left: 10px;
-	}
+  margin: 5px 0;
+
+  &-item {
+    font-size: 2em;
+    margin-left: 10px;
+  }
 }
