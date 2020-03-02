@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ab2fa61f.chunk.css",
+    "main.js": "/static/js/main.55f5bdd0.chunk.js",
+    "main.js.map": "/static/js/main.55f5bdd0.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e282ae16.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e282ae16.js.map",
+    "static/js/2.1b8c1991.chunk.js": "/static/js/2.1b8c1991.chunk.js",
+    "static/js/2.1b8c1991.chunk.js.map": "/static/js/2.1b8c1991.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.b323f08c281e7d35b38865212290ea06.js": "/precache-manifest.b323f08c281e7d35b38865212290ea06.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.ab2fa61f.chunk.css.map": "/static/css/main.ab2fa61f.chunk.css.map",
+    "static/js/2.1b8c1991.chunk.js.LICENSE.txt": "/static/js/2.1b8c1991.chunk.js.LICENSE.txt",
+    "static/media/cloud.jpg": "/static/media/cloud.6327bf5b.jpg",
+    "static/media/day.jpg": "/static/media/day.20b2334b.jpg",
+    "static/media/weatherBlock.scss": "/static/media/up.e1182bf4.svg",
+    "static/media/morning1.jpg": "/static/media/morning1.c4b2ded2.jpg",
+    "static/media/night.jpg": "/static/media/night.fed4845f.jpg",
+    "static/media/rainMorning.jpg": "/static/media/rainMorning.b25ecc0d.jpg",
+    "static/media/snowStorm.jpg": "/static/media/snowStorm.a25d559a.jpg",
+    "static/media/stormMorning.jpg": "/static/media/stormMorning.141c3507.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e282ae16.js",
+    "static/js/2.1b8c1991.chunk.js",
+    "static/css/main.ab2fa61f.chunk.css",
+    "static/js/main.55f5bdd0.chunk.js"
+  ]
+}
