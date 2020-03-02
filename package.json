@@ -2,6 +2,10 @@
 	"name": "weather_forecast",
 	"version": "0.1.0",
 	"private": true,
+	"engines": {
+		"npm": "6.13.7",
+		"node": "13.9.0"
+	},
 	"prettier": {
 		"trailingComma": "es5",
 		"tabWidth": 2,
@@ -35,9 +39,9 @@
 		],
 		"development": [
 			"ie 11",
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
+			"last 2 chrome version",
+			"last 2 firefox version",
+			"last 2 safari version"
 		]
 	},
 	"devDependencies": {
